@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahinul Islam | Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --success: #10b981;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 90%;
+        }
+        
+        .highlight {
+            background-color: rgba(37, 99, 235, 0.1);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--gray);
+        }
+        
+        .contact-item i {
+            color: var(--primary);
+            width: 20px;
+        }
+        
+        .hero-image {
+            position: relative;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .profile-img:hover {
+            transform: translateY(-10px);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px rgba(37, 99, 235, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Work Experience */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--gray-light);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+            padding-right: calc(50% + 30px);
+        }
+        
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+            padding-left: calc(50% + 30px);
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 400px;
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .timeline-content h4 {
+            color: var(--gray);
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .timeline-content p {
+            color: var(--dark);
+            line-height: 1.7;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            top: 0;
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: calc(50% - 90px);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-date {
+            left: calc(50% - 90px);
+        }
+        
+        /* Education & Skills */
+        .education-skills {
+            background-color: #f8fafc;
+        }
+        
+        .education-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .education-card, .skills-card {
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .education-card:hover, .skills-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .education-card h3, .skills-card h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .education-card h3 i, .skills-card h3 i {
+            font-size: 1.4rem;
+        }
+        
+        .education-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .education-item h4 {
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+        
+        .education-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+        
+        .grade {
+            display: inline-block;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-top: 5px;
+        }
+        
+        .skills-category {
+            margin-bottom: 25px;
+        }
+        
+        .skills-category h4 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background-color: var(--gray-light);
+            color: var(--dark);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .skill-tag.primary {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+        }
+        
+        /* References */
+        .reference-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .reference-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .reference-card h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.6rem;
+        }
+        
+        .reference-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .reference-info p {
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                justify-content: flex-start !important;
+                padding-left: 70px !important;
+                padding-right: 0 !important;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-date,
+            .timeline-item:nth-child(even) .timeline-date {
+                left: 0;
+                right: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+            
+            .education-card, .skills-card, .reference-card {
+                padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding-top: 130px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Shahin<span>ul</span></a>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#education">Education</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#reference">Reference</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span>Shahinul Islam</span></h1>
+                    <p>A dedicated professional with experience in <span class="highlight">computer training</span>, <span class="highlight">teaching</span>, <span class="highlight">management</span>, and <span class="highlight">government project data entry</span>. Skilled in communication, teamwork, and project execution.</p>
+                    <p>Seeking to leverage these skills in a team management role to support organizational growth.</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+88 01403 148088</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>shahinulislam9191@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Shathibari, Mithapukur, Rangpur</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <a href="#experience" class="btn">View My Experience</a>
+                        <a href="#contact" class="btn btn-secondary" style="margin-left: 15px;">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-img-placeholder" style="background: linear-gradient(135deg, var(--primary), var(--secondary)); height: 400px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-user" style="font-size: 4rem; margin-bottom: 20px;"></i>
+                            <p>Shahinul Islam</p>
+                            <p>Professional Portfolio</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Work Experience</h2>
+                <p>My professional journey across various roles and responsibilities</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2025 - Dec 2025</div>
+                    <div class="timeline-content">
+                        <h3>Manager</h3>
+                        <h4>SteadFast Courier, Faridpur Sadar</h4>
+                        <p>Managed key client accounts to boost satisfaction and growth, led a team to exceed operational targets and ensured excellent service delivery.</p>
+                        </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                        <div class="timeline-date">July 2024 - Jan 2025</div>
+                        <div class="timeline-content">
+                        <h3>Data Entry Operator</h3>
+                        <h4>DC Office, Rangpur</h4>
+                        <p>Accurately entered and managed data for a government project, ensured data integrity, and supported project tasks with timely and precise record-keeping.</p>
+                        </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                        <div class="timeline-date">March 2024 - July 2024</div>
+                        <div class="timeline-content">
+                        <h3>Computer Trainer</h3>
+                        <h4>Shathibari Post Office, Rangpur</h4>
+                        <p>Developed and taught courses for beginners and intermediate learners. Created hands-on lessons and helped students build their skills and confidence with technology.</p>
+                        </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                        <div class="timeline-date">Feb 2023 - Aug 2023</div>
+                        <div class="timeline-content">
+                        <h3>Teacher</h3>
+                        <h4>Good Baby Pre Cadet School, Shathibari, Mithapukur</h4>
+                        <p>Created a fun and engaging learning environment as a Kindergarten Teacher, helping young children develop essential skills through play-based activities and hands-on learning.</p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </section>
+                        
+                        <!-- Education & Skills -->
+                        <section class="education-skills" id="education">
+                        <div class="container">
+                        <div class="section-title">
+                        <h2>Education & Skills</h2>
+                        <p>My academic background and professional capabilities</p>
+                        </div>
+                        
+                        <div class="education-skills-grid">
+                        <div class="education-card">
+                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                        
+                        <div class="education-item">
+                        <h4>MA History</h4>
+                        <p>Carmichael College, Rangpur</p>
+                        <p>Exam held in 2025</p>
+                        <div class="grade">CGPA: 2.66 out of 4.00</div>
+                        </div>
+                        
+                        <div class="education-item">
+                        <h4>BA History</h4>
+                        <p>Carmichael College, Rangpur</p>
+                        <p>Exam held in 2023</p>
+                        <div class="grade">CGPA: 2.85 out of 4.00</div>
+                        </div>
+                        
+                        <div class="education-item">
+                        <h4>HSC Humanities</h4>
+                        <p>Sathibari Degree College</p>
+                        <p>2017</p>
+                        <div class="grade">GPA: 3.92 out of 5.00</div>
+                        </div>
+                        </div>
+                        
+                        <div class="skills-card" id="skills">
+                        <h3><i class="fas fa-laptop-code"></i> Computer Skills</h3>
+                        <div class="skills-category">
+                        <div class="skills-list">
+                        <div class="skill-tag primary">Microsoft Word</div>
+                        <div class="skill-tag primary">Microsoft Excel</div>
+                        <div class="skill-tag primary">PowerPoint Presentation</div>
+                        </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 30px;"><i class="fas fa-users"></i> Interpersonal Skills</h3>
+                        <div class="skills-category">
+                        <div class="skills-list">
+                        <div class="skill-tag">Communication</div>
+                        <div class="skill-tag">Patience</div>
+                        <div class="skill-tag">Teamwork</div>
+                        <div class="skill-tag">Problem Solving</div>
+                        <div class="skill-tag">Time Management</div>
+                        <div class="skill-tag">Adaptability</div>
+                        </div>
+                        </div>
+                        
+                        <h3 style="margin-top: 30px;"><i class="fas fa-language"></i> Language Skills</h3>
+                        <div class="skills-category">
+                        <div class="skills-list">
+                        <div class="skill-tag primary">English - Excellent</div>
+                        <div class="skill-tag">Bengali - Native</div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </section>
+                        
+                        <!-- Reference -->
+                        <section id="reference">
+                        <div class="container">
+                        <div class="section-title">
+                        <h2>Reference</h2>
+                        <p>Professional reference for verification</p>
+                        </div>
+                        
+                        <div class="reference-card">
+                        <h3><i class="fas fa-user-tie"></i> Professional Reference</h3>
+                        <div class="reference-info">
+                        <h4>Md. Tashrif Al Kaikobad</h4>
+                        <p>Asst. Manager (QA)</p>
+                        <p>Osman Group of Industries</p>
+                        <p>Phone: +8801763203939</p>
+                        </div>
+                        </div>
+                        </div>
+                        </section>
+                        
+                        <!-- Contact & Footer -->
+                        <footer id="contact">
+                        <div class="container">
+                        <div class="footer-content">
+                        <div>
+                        <a href="#" class="footer-logo">Shahin<span>ul</span></a>
+                        <p style="color: #cbd5e1; max-width: 300px; margin-bottom: 20px;">A dedicated professional seeking to leverage skills in team management to support organizational growth.</p>
+                        <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        </div>
+                        </div>
+                        
+                        <div>
+                        <h4 style="color: white; margin-bottom: 20px; font-size: 1.2rem;">Quick Links</h4>
+                        <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#experience">Experience</a>
+                        <a href="#education">Education</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#reference">Reference</a>
+                        </div>
+                        </div>
+                        
+                        <div>
+                        <h4 style="color: white; margin-bottom: 20px; font-size: 1.2rem;">Contact Info</h4>
+                        <div class="footer-links">
+                        <a href="tel:+8801403148088"><i class="fas fa-phone-alt" style="margin-right: 8px;"></i> +88 01403 148088</a>
+                        <a href="mailto:shahinulislam9191@gmail.com"><i class="fas fa-envelope" style="margin-right: 8px;"></i> shahinulislam9191@gmail.com</a>
+                        <a href="#"><i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i> Shathibari, Mithapukur, Rangpur</a>
+                        </div>
+                        </div>
+                        </div>
+                        
+                        <div class="copyright">
+                        <p>&copy; 2025 Shahinul Islam. All Rights Reserved.</p>
+                        </div>
+                        </div>
+                        </footer>
+                        
+                        <script>
+                        // Mobile menu toggle
+                        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+                        const navLinks = document.querySelector('.nav-links');
+                        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                        });
+                        
+                        // Smooth scrolling for navigation links
+                        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                        anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        if(targetId === '#') return;
+                        
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                        window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if(window.innerWidth <= 768) {
+                        document.querySelector('.nav-links').style.display = 'none';
+                        }
+                        }
+                        });
+                        });
+                        
+                        // Header background on scroll
+                        window.addEventListener('scroll', function() {
+                        const header = document.querySelector('header');
+                        if(window.scrollY > 50) {
+                        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                        } else {
+                        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+                        }
+                        });
+                        
+                        // Simple animation on scroll
+                        const observerOptions = {
+                        threshold: 0.1,
+                        rootMargin: '0px 0px -50px 0px'
+                        };
+                        
+                        const observer = new IntersectionObserver(function(entries) {
+                        entries.forEach(entry => {
+                        if(entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        }
+                        });
+                        }, observerOptions);
+                        
+                        // Observe elements for animation
+                        document.querySelectorAll('.timeline-content, .education-card, .skills-card, .reference-card').forEach(el => {
+                        el.style.opacity = '0';
+                        el.style.transform = 'translateY(20px)';
+                        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        observer.observe(el);
+                        });
+                        </script>
+                        </body>
+                        </html>
